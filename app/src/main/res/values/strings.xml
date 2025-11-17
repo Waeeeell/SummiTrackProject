@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="registrate">Registrate</string>
+    <string name="Aún_No_pregunta">Aún no tienes cuenta? Regístrate !</string>
+    <string name="password">Contraseña</string>
+    <string name="nombre_de_usuario">Nombre de usuario</string>
+    <string name="volver">Volver</string>
+</resources>
