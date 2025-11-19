@@ -33,11 +33,13 @@ class MainActivity : AppCompatActivity() {
             iniciarSesion.setOnClickListener {
                 val intent = Intent(this, menu_iniciar_sesion::class.java)
                 startActivity(intent)
+
             }
 
             registrarse.setOnClickListener {
                 val intent = Intent(this, menu_registrarse::class.java)
                 startActivity(intent)
+
             }
         }
     }

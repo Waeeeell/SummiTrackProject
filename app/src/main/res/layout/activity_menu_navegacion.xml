@@ -8,6 +8,4 @@
     tools:context=".menu_iniciar_sesion"
     android:background="@color/botones1"
     >
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
