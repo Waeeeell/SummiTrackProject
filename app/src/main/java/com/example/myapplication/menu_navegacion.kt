@@ -10,7 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 
 class menu_navegacion : AppCompatActivity() {
 
-    private lateinit var logo: ImageView
+    private lateinit var perfil: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,11 +21,11 @@ class menu_navegacion : AppCompatActivity() {
         initLiteners()
     }
     private fun initComponent(){
-        logo = findViewById<ImageView>(R.id.logo)
+        perfil = findViewById<ImageView>(R.id.fotoPerfil)
     }
 
     private fun initLiteners(){
-        logo.setOnClickListener {
+        perfil.setOnClickListener {
             val intent = Intent(this, Menu_perfil::class.java)
             startActivity(intent)
         }
