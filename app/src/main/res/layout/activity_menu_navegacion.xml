@@ -6,6 +6,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menu_iniciar_sesion"
-    android:background="@color/botones1"
+    android:background="@color/gray"
     >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/General2"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        app:cardBackgroundColor="@color/barra_superior"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/logoMenu"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="30dp"
+                android:src="@drawable/logo_correcte_no_fons"
+                >
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/fotoPerfil"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="250dp"
+                android:src="@drawable/usuario"
+                >
+            </ImageView>
+
+
+
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
