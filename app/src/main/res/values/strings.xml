@@ -6,4 +6,5 @@
     <string name="password">Contraseña</string>
     <string name="nombre_de_usuario">Nombre de usuario</string>
     <string name="volver">Volver</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
 </resources>
