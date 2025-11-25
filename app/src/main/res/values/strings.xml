@@ -7,4 +7,8 @@
     <string name="nombre_de_usuario">Nombre de usuario</string>
     <string name="volver">Volver</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="nombre_de_la_actividad">Nombre de la Actividad</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="activitats_recents">Activitats recents</string>
 </resources>
