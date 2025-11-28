@@ -21,14 +21,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/nombre_de_la_actividad"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#000000"/>
 
         <ImageButton
             android:id="@+id/btnEditar"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_edit"
             android:contentDescription="@string/editar"
@@ -36,8 +36,8 @@
 
         <ImageButton
             android:id="@+id/btnEliminar"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_delete"

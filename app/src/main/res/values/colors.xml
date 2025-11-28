@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="azul">#3F51B5</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#F2ECEC</color>
     <color name="botones1">#00758A</color>
     <color name="verde">#62B17C</color>
     <color name="barra_superiorAux">#19B0B3</color>
     <color name="fondo">#D6FFEE</color>
+    <color name="prueba">#7CB3B6</color>
+    <color name="prueba2">#EAFAFD</color>
+    <color name= "azul2"> #00BCD4 </color>
+
+
+
 </resources>
