@@ -11,4 +11,7 @@
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
     <string name="activitats_recents">Activitats recents</string>
+    <string name="afegeix">Añadir</string>
+    <string name="home">Home</string>
+    <string name="ajustes">Ajustes</string>
 </resources>

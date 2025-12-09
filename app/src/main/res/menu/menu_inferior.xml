@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+    android:id="@+id/nuevaActividad"
+    android:icon="@drawable/mas_hexagono"
+    android:title="@string/afegeix"
+    />
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/casa"
+        android:title="@string/home"
+        />
+
+    <item
+        android:id="@+id/ajustes"
+        android:icon="@drawable/ajustes"
+        android:title="@string/ajustes"
+        />
+</menu>

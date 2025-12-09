@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menu_navegacion"
-    android:background="@color/white">
+    android:background="@drawable/degradado">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/General2"
@@ -51,7 +51,7 @@
         android:layout_margin="20dp"
         app:cardCornerRadius="30dp"
         app:layout_constraintTop_toBottomOf="@id/General2"
-        app:layout_constraintBottom_toTopOf="@id/contenedorToolbar">
+        app:layout_constraintBottom_toTopOf="@id/BottomBar" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                 android:id="@+id/activiitats_recents"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                app:cardBackgroundColor="@color/botones1"
+                app:cardBackgroundColor="@color/azul"
                 app:cardElevation="0dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -98,59 +98,23 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:clipToPadding="false"
-                tools:listitem="@layout/item_activitat" />
+                tools:listitem="@layout/item_activitat"
+                android:background="@drawable/degradadorecycle"
+                />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/contenedorToolbar"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/BottomBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="35dp"
-        app:cardElevation="8dp"
-        android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/menu_inferior"
+        android:background="@color/white"
+        >
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@color/azul">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/mas_dos"
-                    android:layout_marginRight="20dp">
-
-                </ImageView>
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/casa">
-
-                </ImageView>
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ajustes"
-                    android:layout_marginLeft="20dp">
-
-                </ImageView>
-            </LinearLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-    </androidx.cardview.widget.CardView>
-
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>
