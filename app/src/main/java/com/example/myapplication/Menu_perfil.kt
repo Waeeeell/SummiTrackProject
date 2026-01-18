@@ -25,6 +25,7 @@ class Menu_perfil : AppCompatActivity() {
     }
 
     private fun initComponents(){
+
         Volver = findViewById<ImageView>(R.id.volverPerfil)
         LogOut = findViewById<Button>(R.id.LogOut)
     }

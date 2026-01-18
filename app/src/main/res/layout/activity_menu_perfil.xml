@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Menu_perfil"
-    android:background="@color/white"
+    android:background="@drawable/degradado"
     >
     <androidx.cardview.widget.CardView
         android:id="@+id/General2"
         android:layout_width="match_parent"
         android:layout_height="85dp"
-        app:cardBackgroundColor="@color/barra_superiorAux"
+        app:cardBackgroundColor="@color/azul"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         >
@@ -63,7 +63,7 @@
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:text="@string/cerrar_sesion"
-                android:backgroundTint="@color/botones1"
+                android:backgroundTint="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

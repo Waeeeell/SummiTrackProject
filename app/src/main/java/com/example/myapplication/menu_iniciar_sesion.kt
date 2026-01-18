@@ -49,10 +49,10 @@ class menu_iniciar_sesion : AppCompatActivity() {
             }
         }
 
-        volver.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+       volver.setOnClickListener {
+           val intent = Intent(this, MainActivity::class.java)
+           startActivity(intent)
+       }
 
     }
 }
