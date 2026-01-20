@@ -17,10 +17,15 @@ class menu_navegacion : AppCompatActivity() {
     private lateinit var btnFiltrarDistancia: TextView
 
     private val listaRutas = listOf(
-        Activitat("Ruta Montserrat", "15km"),
-        Activitat("Camí de Ronda", "5km"),
-        Activitat("Pirineus Central", "20km"),
-        Activitat("Collserola", "8km")
+
+        Activitat(1, "Ruta Montserrat", "15km"),
+        Activitat(2, "Camí de Ronda", "5km"),
+        Activitat(3, "Pirineus Central", "20km"),
+        Activitat(4, "Collserola", "8km"),
+        Activitat(5, "Ruta Montserrat", "15km"),
+        Activitat(6, "Camí de Ronda", "5km"),
+        Activitat(7, "Pirineus Central", "20km"),
+        Activitat(8, "Collserola", "8km")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +57,10 @@ class menu_navegacion : AppCompatActivity() {
         }
 
         btnFiltrarDistancia.setOnClickListener {
-            val filtradas = listaRutas.filter { it.categoria.replace("km", "").toInt() > 10 }
+
+            val filtradas = listaRutas.filter {
+                it.descripcion.replace("km", "").toInt() > 10
+            }
             adapter.updateList(filtradas)
         }
     }
