@@ -44,8 +44,8 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardContenedorLista"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentRecyclerLista"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="20dp"
@@ -53,91 +53,8 @@
         app:layout_constraintTop_toBottomOf="@id/General2"
         app:layout_constraintBottom_toTopOf="@id/BottomBar" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@drawable/degradado">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/header_lista"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/azul"
-                app:cardElevation="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingBottom="8dp">
-
-                    <TextView
-                        android:id="@+id/activitats_recents"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/activitats_recents"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="12dp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="20sp" />
-
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbars="none"
-                        android:paddingStart="20dp"
-                        android:layout_marginTop="8dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <Button
-                                android:id="@+id/btnFiltroDistancia"
-                                android:layout_width="wrap_content"
-                                android:layout_height="36dp"
-                                android:text="Distancia"
-                                android:textSize="11sp"
-                                android:backgroundTint="@color/botones1" />
-
-                            <Button
-                                android:id="@+id/btnFiltroDuracion"
-                                android:layout_width="wrap_content"
-                                android:layout_height="36dp"
-                                android:layout_marginStart="8dp"
-                                android:text="Duración"
-                                android:textSize="11sp"
-                                android:backgroundTint="@color/botones1" />
-
-                            <Button
-                                android:id="@+id/btnFiltroLimpiar"
-                                android:layout_width="wrap_content"
-                                android:layout_height="36dp"
-                                android:layout_marginStart="8dp"
-                                android:text="Todos"
-                                android:textSize="11sp"
-                                android:backgroundTint="@color/black" />
-
-                        </LinearLayout>
-                    </HorizontalScrollView>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewActividades"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:clipToPadding="false"
-                tools:listitem="@layout/item_activitat"
-                android:background="@drawable/degradadorecycle" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </androidx.fragment.app.FragmentContainerView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/BottomBar"

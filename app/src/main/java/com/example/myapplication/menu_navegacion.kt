@@ -8,47 +8,38 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class menu_navegacion : AppCompatActivity() {
 
     private lateinit var perfil: ImageView
-    private lateinit var adapter: ActivitatAdapter
-    private lateinit var rv: RecyclerView
-    private lateinit var btnFiltrarDistancia: TextView
-
-    private val listaRutas = listOf(
-
-        Activitat(1, "Ruta Montserrat", "15km"),
-        Activitat(2, "Camí de Ronda", "5km"),
-        Activitat(3, "Pirineus Central", "20km"),
-        Activitat(4, "Collserola", "8km"),
-        Activitat(5, "Ruta Montserrat", "15km"),
-        Activitat(6, "Camí de Ronda", "5km"),
-        Activitat(7, "Pirineus Central", "20km"),
-        Activitat(8, "Collserola", "8km")
-    )
+    private lateinit var botttomBar: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_navegacion)
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentRecyclerLista, fragment_home()).commit()
+
+
         initComponent()
         initListeners()
-        setupRecyclerView()
+
     }
 
     private fun initComponent() {
         perfil = findViewById(R.id.fotoPerfil)
-        rv = findViewById(R.id.recyclerViewActividades)
-        btnFiltrarDistancia = findViewById(R.id.activitats_recents)
+        botttomBar = findViewById(R.id.BottomBar)
+        botttomBar.selectedItemId = R.id.home
     }
 
-    private fun setupRecyclerView() {
+    /*private fun setupRecyclerView() {
         adapter = ActivitatAdapter(listaRutas)
         rv.adapter = adapter
         rv.layoutManager = LinearLayoutManager(this)
-    }
+    }*/
 
     private fun initListeners() {
         perfil.setOnClickListener {
@@ -56,12 +47,32 @@ class menu_navegacion : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btnFiltrarDistancia.setOnClickListener {
+
+        botttomBar.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentRecyclerLista, fragment_home()).commit()
+                    true
+
+                }
+
+                R.id.nuevaActividad -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentRecyclerLista, fragment_add_activity()).commit()
+                    true
+                }
+
+                else -> false
+            }
+
+            /*btnFiltrarDistancia.setOnClickListener {
 
             val filtradas = listaRutas.filter {
                 it.descripcion.replace("km", "").toInt() > 10
             }
-            adapter.updateList(filtradas)
+            adapter.updateList(filtradas)*/
         }
     }
 }
+
