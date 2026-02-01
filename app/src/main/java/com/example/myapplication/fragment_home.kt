@@ -16,15 +16,13 @@ class fragment_home : Fragment() {
 
 
     private val listaRutas = listOf(
-
-        Activitat(1, "Ruta Montserrat", "15km"),
-        Activitat(2, "Camí de Ronda", "5km"),
-        Activitat(3, "Pirineus Central", "20km"),
-        Activitat(4, "Collserola", "8km"),
-        Activitat(5, "Ruta Montserrat", "15km"),
-        Activitat(6, "Camí de Ronda", "5km"),
-        Activitat(7, "Pirineus Central", "20km"),
-        Activitat(8, "Collserola", "8km")
+        Activitat("Aneto", "Ruta alta montaña", Distancia = 10, Dias = 0, Horas = 8, Minuts = 12),
+        Activitat("Montserrat", "Caminada suau", Distancia = 5, Dias = 0, Horas = 2, Minuts = 30),
+        Activitat("Pica d'Estats", "Ruta molt exigent", Distancia = 20, Dias = 1, Horas = 4, Minuts = 0),
+        Activitat("Collserola", "Passeig matinal", Distancia = 8, Dias = 0, Horas = 1, Minuts = 45),
+        Activitat("Vallibierna", "Alta montaña", Distancia = 12, Dias = 0, Horas = 5, Minuts = 30),
+        Activitat("k2", "Expedicio", Distancia = 180, Dias = 52, Horas = 4, Minuts = 0),
+        Activitat("Itic", "Passeig matinal", Distancia = 8, Dias = 0, Horas = 1, Minuts = 45)
     )
 
     override fun onCreateView(
@@ -42,7 +40,6 @@ class fragment_home : Fragment() {
 
         rv.adapter = adapter
         rv.layoutManager = LinearLayoutManager(requireContext())
-
 
     }
 }

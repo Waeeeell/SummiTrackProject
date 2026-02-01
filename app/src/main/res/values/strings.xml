@@ -25,4 +25,8 @@
     <string name="descripci_n">Descripción</string>
     <string name="duraci_n">Duración</string>
     <string name="distancia">Distancia</string>
+    <string name="settings">Ajustes</string>
+    <string name="castellano">Castellano</string>
+    <string name="catal">Català</string>
+    <string name="english">English</string>
 </resources>

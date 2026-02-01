@@ -21,10 +21,10 @@ class ActivitatAdapter(private var lista: List<Activitat>) :
 
     override fun onBindViewHolder(holder: ActivitatViewHolder, position: Int) {
         val item = lista[position]
-        holder.tvTitulo.text = item.nombre
+        holder.tvTitulo.text = item.NombreRuta
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Actividad: ${item.nombre}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(holder.itemView.context, "Actividad: ${item.NombreRuta}", Toast.LENGTH_SHORT).show()
         }
     }
 

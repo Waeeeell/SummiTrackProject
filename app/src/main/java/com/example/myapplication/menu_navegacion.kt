@@ -63,6 +63,14 @@ class menu_navegacion : AppCompatActivity() {
                     true
                 }
 
+                R.id.ajustes -> {
+
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentRecyclerLista, fragment_settings()).commit()
+                    true
+                }
+
+
                 else -> false
             }
 
