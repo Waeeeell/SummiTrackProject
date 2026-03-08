@@ -15,7 +15,7 @@ class ApiClient {
     companion object {
 
         // IMPORTANT: Canvia aquesta URL per la IP/URL del teu servidor API
-        private const val BASE_URL = "http://10.0.2.2:8080/"
+        private const val BASE_URL = "http://129.153.25.166:8080/"
 
         private var mActivitatService: ActivitatService? = null
 
