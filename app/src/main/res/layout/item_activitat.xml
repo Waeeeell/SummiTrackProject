@@ -5,44 +5,107 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
+        android:padding="12dp"
         android:gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/tvTitulo"
+        <!-- Imatge amb Glide -->
+        <ImageView
+            android:id="@+id/ivImatge"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo_correcte_no_fons"
+            android:contentDescription="Imatge activitat" />
+
+        <!-- Informació de l'activitat -->
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/nombre_de_la_actividad"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#000000"/>
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
 
+            <TextView
+                android:id="@+id/tvTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_de_la_actividad"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/tvDescripcio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descripció"
+                android:textSize="13sp"
+                android:textColor="#666666"
+                android:layout_marginTop="2dp"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/tvDuracio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0d 0h 0min"
+                    android:textSize="12sp"
+                    android:textColor="@color/botones1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  |  "
+                    android:textSize="12sp"
+                    android:textColor="#CCCCCC" />
+
+                <TextView
+                    android:id="@+id/tvDistancia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 km"
+                    android:textSize="12sp"
+                    android:textColor="@color/botones1" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Botons Editar i Eliminar -->
         <ImageButton
             android:id="@+id/btnEditar"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_edit"
             android:contentDescription="@string/editar"
-            app:tint="#FF9800"/>
+            app:tint="#FF9800" />
 
         <ImageButton
             android:id="@+id/btnEliminar"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="4dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_delete"
             android:contentDescription="@string/eliminar"
-            app:tint="#F44336"/>
+            app:tint="#F44336" />
 
     </LinearLayout>
 
