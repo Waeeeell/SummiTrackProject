@@ -75,6 +75,7 @@ class fragment_add_activity : Fragment() {
                 return@setOnClickListener
             }
 
+            // 1. Asegúrate de que el objeto novaActivitat use todos los valores de los pickers
             val novaActivitat = Activitat(
                 nombreRuta = nom,
                 descripcio = desc,
@@ -84,17 +85,19 @@ class fragment_add_activity : Fragment() {
                 distancia = distancia.value
             )
 
+            // 2. Llama a viewModel.crearActivitat(novaActivitat)
             viewModel.crearActivitat(novaActivitat)
 
-            Toast.makeText(requireContext(), "Creant activitat...", Toast.LENGTH_SHORT).show()
+            // 3. Añade un Toast que diga "Enviando actividad a la nube..."
+            Toast.makeText(requireContext(), "Enviando actividad a la nube...", Toast.LENGTH_SHORT).show()
 
-            // Netejar camps
-            nombreActividad.text.clear()
-            descripcionActividad.text.clear()
-            dias.value = 0
-            horas.value = 0
-            minutos.value = 0
-            distancia.value = 0
+            // 5. Asegúrate de que el método limpiarCampos() se llame después de crear la actividad
+            limpiarCampos()
+
+            // 4. Navegación para volver automáticamente al fragment_home
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentRecyclerLista, fragment_home())
+                .commit()
         }
 
         botonCancelar.setOnClickListener {
@@ -103,5 +106,14 @@ class fragment_add_activity : Fragment() {
                 .replace(R.id.fragmentRecyclerLista, fragment_home())
                 .commit()
         }
+    }
+
+    private fun limpiarCampos() {
+        nombreActividad.text.clear()
+        descripcionActividad.text.clear()
+        dias.value = 0
+        horas.value = 0
+        minutos.value = 0
+        distancia.value = 0
     }
 }
