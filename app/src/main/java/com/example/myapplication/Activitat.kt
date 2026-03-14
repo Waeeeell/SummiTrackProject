@@ -2,6 +2,8 @@ package com.example.myapplication
 
 import com.google.gson.annotations.SerializedName
 
+import java.io.Serializable
+
 data class Activitat(
     @SerializedName("id")
     val id: Long? = null,
@@ -32,4 +34,4 @@ data class Activitat(
 
     @SerializedName("imatgeUrl")
     val imatgeUrl: String? = null
-)
+) : Serializable

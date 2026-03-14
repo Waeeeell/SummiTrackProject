@@ -12,7 +12,8 @@ import com.bumptech.glide.Glide
 class ActivitatAdapter(
     private var lista: List<Activitat>,
     private val onEditClick: (Activitat) -> Unit,
-    private val onDeleteClick: (Activitat) -> Unit
+    private val onDeleteClick: (Activitat) -> Unit,
+    private val onItemClick: (Activitat) -> Unit
 ) : RecyclerView.Adapter<ActivitatAdapter.ActivitatViewHolder>() {
 
     class ActivitatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -58,6 +59,11 @@ class ActivitatAdapter(
         // Botó Eliminar
         holder.btnEliminar.setOnClickListener {
             onDeleteClick(item)
+        }
+
+        // Clic a la targeta
+        holder.itemView.setOnClickListener {
+            onItemClick(item)
         }
     }
 

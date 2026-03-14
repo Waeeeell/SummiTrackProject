@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/ivImatgeDetalle"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo_correcte_no_fons"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/tvNombreDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:text="Nombre de Actividad"/>
+
+    <TextView
+        android:id="@+id/tvDescripcioDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:textColor="#333333"
+        android:text="Descripción"/>
+
+    <TextView
+        android:id="@+id/tvDuracionDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:textColor="#555555"
+        android:text="Duración: 0d 0h 0min"/>
+
+    <TextView
+        android:id="@+id/tvDistanciaDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:textColor="#555555"
+        android:text="Distancia: 0 km"/>
+
+    <Button
+        android:id="@+id/btnVolverDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volver"
+        android:layout_marginTop="32dp"/>
+
+</LinearLayout>

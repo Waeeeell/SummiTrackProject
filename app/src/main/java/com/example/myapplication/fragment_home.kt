@@ -42,8 +42,29 @@ class fragment_home : Fragment() {
         rv = view.findViewById(R.id.recyclerViewActividades)
         adapter = ActivitatAdapter(
             emptyList(),
-            onEditClick = { activitat -> mostrarDialogEditar(activitat) },
-            onDeleteClick = { activitat -> mostrarDialogConfirmacioEliminar(activitat) }
+            onEditClick = { activitat ->
+                val fragment = fragment_add_activity().apply {
+                    arguments = Bundle().apply {
+                        putSerializable("activitat", activitat)
+                    }
+                }
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentRecyclerLista, fragment)
+                    .addToBackStack(null)
+                    .commit()
+            },
+            onDeleteClick = { activitat -> mostrarDialogConfirmacioEliminar(activitat) },
+            onItemClick = { activitat ->
+                val fragment = fragment_detalle_activity().apply {
+                    arguments = Bundle().apply {
+                        putSerializable("activitat", activitat)
+                    }
+                }
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentRecyclerLista, fragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
         )
         rv.adapter = adapter
         rv.layoutManager = LinearLayoutManager(requireContext())

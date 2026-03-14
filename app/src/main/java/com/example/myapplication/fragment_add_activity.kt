@@ -13,6 +13,8 @@ import androidx.lifecycle.ViewModelProvider
 
 class fragment_add_activity : Fragment() {
 
+    private var activitatEdit: Activitat? = null
+
     private lateinit var nombreActividad: EditText
     private lateinit var descripcionActividad: EditText
     private lateinit var dias: NumberPicker
@@ -33,6 +35,18 @@ class fragment_add_activity : Fragment() {
 
         initComponent(rootView)
         configuracioPickers()
+
+        activitatEdit = arguments?.getSerializable("activitat") as? Activitat
+        if (activitatEdit != null) {
+            nombreActividad.setText(activitatEdit!!.nombreRuta)
+            descripcionActividad.setText(activitatEdit!!.descripcio)
+            dias.value = activitatEdit!!.dias
+            horas.value = activitatEdit!!.horas
+            minutos.value = activitatEdit!!.minuts
+            distancia.value = activitatEdit!!.distancia
+            botonCrear.text = "Actualizar"
+        }
+
         initListeners()
 
         return rootView
@@ -75,21 +89,39 @@ class fragment_add_activity : Fragment() {
                 return@setOnClickListener
             }
 
-            // 1. Asegúrate de que el objeto novaActivitat use todos los valores de los pickers
-            val novaActivitat = Activitat(
-                nombreRuta = nom,
-                descripcio = desc,
-                dias = dias.value,
-                horas = horas.value,
-                minuts = minutos.value,
-                distancia = distancia.value
-            )
+            if (activitatEdit == null) {
+                // 1. Asegúrate de que el objeto novaActivitat use todos los valores de los pickers
+                val novaActivitat = Activitat(
+                    nombreRuta = nom,
+                    descripcio = desc,
+                    dias = dias.value,
+                    horas = horas.value,
+                    minuts = minutos.value,
+                    distancia = distancia.value
+                )
 
-            // 2. Llama a viewModel.crearActivitat(novaActivitat)
-            viewModel.crearActivitat(novaActivitat)
+                // 2. Llama a viewModel.crearActivitat(novaActivitat)
+                viewModel.crearActivitat(novaActivitat)
 
-            // 3. Añade un Toast que diga "Enviando actividad a la nube..."
-            Toast.makeText(requireContext(), "Enviando actividad a la nube...", Toast.LENGTH_SHORT).show()
+                // 3. Añade un Toast que diga "Enviando actividad a la nube..."
+                Toast.makeText(requireContext(), "Enviando actividad a la nube...", Toast.LENGTH_SHORT).show()
+            } else {
+                val activitatActualitzada = Activitat(
+                    id = activitatEdit!!.id,
+                    nombreRuta = nom,
+                    descripcio = desc,
+                    dias = dias.value,
+                    horas = horas.value,
+                    minuts = minutos.value,
+                    distancia = distancia.value,
+                    imatgeUrl = activitatEdit!!.imatgeUrl
+                )
+
+                activitatEdit!!.id?.let {
+                    viewModel.actualitzarActivitat(it, activitatActualitzada)
+                }
+                Toast.makeText(requireContext(), "Actualizando actividad...", Toast.LENGTH_SHORT).show()
+            }
 
             // 5. Asegúrate de que el método limpiarCampos() se llame después de crear la actividad
             limpiarCampos()
