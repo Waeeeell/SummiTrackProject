@@ -64,7 +64,7 @@ class ActivitatViewModel : ViewModel() {
         viewModelScope.launch {
             _loading.value = true
             try {
-                val response = ApiClient.API().updateActivitat(id, activitat)
+                val response = ApiClient.API().actualizarActivitat(id, activitat)
                 if (response.isSuccessful) {
                     _operacioExitosa.value = true
                     carregarActivitats()

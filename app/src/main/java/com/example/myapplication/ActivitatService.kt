@@ -25,7 +25,7 @@ interface ActivitatService {
 
     // PUT - Actualitzar una activitat existent
     @PUT("api/PutActivitat/{id}")
-    suspend fun updateActivitat(@Path("id") id: Long, @Body activitat: Activitat): Response<Activitat>
+    suspend fun actualizarActivitat(@Path("id") id: Long, @Body activitat: Activitat): Response<Activitat>
 
     // DELETE - Eliminar una activitat
     @DELETE("api/DeleteActivitat/{id}")
