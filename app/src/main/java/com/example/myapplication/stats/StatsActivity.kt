@@ -40,6 +40,7 @@ class StatsActivity : AppCompatActivity() {
         pieChart = findViewById(R.id.pieChart)
 
         findViewById<Button>(R.id.btnSync).setOnClickListener {
+            android.widget.Toast.makeText(this, "Sincronizando...", android.widget.Toast.LENGTH_SHORT).show()
             viewModel.syncToFirestore()
             viewModel.syncFromFirestore()
         }
