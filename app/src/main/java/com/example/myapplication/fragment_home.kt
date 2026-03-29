@@ -11,10 +11,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.stats.StatsDataStore
 import com.google.android.material.textfield.TextInputEditText
-
+import kotlinx.coroutines.launch
 class fragment_home : Fragment() {
 
     private lateinit var rv: RecyclerView
@@ -87,7 +89,7 @@ class fragment_home : Fragment() {
     override fun onResume() {
         super.onResume()
         val dataStore = com.example.myapplication.stats.StatsDataStore(requireContext())
-        androidx.lifecycle.lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             dataStore.incrementHomeVisits()
         }
     }
