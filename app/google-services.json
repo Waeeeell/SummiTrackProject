@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "123456789012",
-    "project_id": "placeholder-project-id",
-    "storage_bucket": "placeholder-project-id.appspot.com"
+    "project_number": "947073741642",
+    "project_id": "summitrack-bdf1e",
+    "storage_bucket": "summitrack-bdf1e.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789012:android:0123456789abcdef012345",
+        "mobilesdk_app_id": "1:947073741642:android:774f8df436bed1ebc6c7b3",
         "android_client_info": {
           "package_name": "com.example.myapplication"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "PLACEHOLDER_KEY_FOR_BUILD_ZZZZZZ"
+          "current_key": "AIzaSyBShfv_K_oGcQ5n9am-eHwvy-g1rlRcJfY"
         }
       ],
       "services": {
