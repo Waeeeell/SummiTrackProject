@@ -1,12 +1,15 @@
 package com.example.myapplication
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
-class ActivitatViewModel : ViewModel() {
+class ActivitatViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val statsManager = StatsManager(application)
 
     private val _activitats = MutableLiveData<List<Activitat>>()
     val activitats: LiveData<List<Activitat>> = _activitats
@@ -47,6 +50,7 @@ class ActivitatViewModel : ViewModel() {
                 val response = ApiClient.API().createActivitat(activitat)
                 if (response.isSuccessful) {
                     _operacioExitosa.value = true
+                    viewModelScope.launch { statsManager.incrementStat(StatsManager.ITEMS_ADDED) }
                     carregarActivitats()
                 } else {
                     _error.value = "Error al crear: ${response.code()} - ${response.message()}"
@@ -87,6 +91,7 @@ class ActivitatViewModel : ViewModel() {
                 val response = ApiClient.API().deleteActivitat(id)
                 if (response.isSuccessful) {
                     _operacioExitosa.value = true
+                    viewModelScope.launch { statsManager.incrementStat(StatsManager.ITEMS_DELETED) }
                     carregarActivitats()
                 } else {
                     _error.value = "Error al eliminar: ${response.code()} - ${response.message()}"

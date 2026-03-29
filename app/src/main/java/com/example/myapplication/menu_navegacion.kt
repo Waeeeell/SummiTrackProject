@@ -6,7 +6,9 @@ import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.launch
 
 class menu_navegacion : AppCompatActivity() {
 
@@ -63,6 +65,31 @@ class menu_navegacion : AppCompatActivity() {
 
                 else -> false
             }
+        }
+    }
+
+    private var startTimeMillis: Long = 0L
+
+    override fun onStart() {
+        super.onStart()
+        startTimeMillis = System.currentTimeMillis()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        val elapsedSeconds = (System.currentTimeMillis() - startTimeMillis) / 1000
+        val statsManager = StatsManager(this)
+        // Coroutine per guardar estadistiques sense bloquejar l'UI
+        androidx.lifecycle.lifecycleScope.launch {
+            statsManager.addUsageTime(elapsedSeconds)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val statsManager = StatsManager(this)
+        androidx.lifecycle.lifecycleScope.launch {
+            statsManager.incrementStat(StatsManager.ACTIVITY_CLOSES)
         }
     }
 }

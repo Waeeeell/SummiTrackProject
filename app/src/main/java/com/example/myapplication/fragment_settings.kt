@@ -33,8 +33,12 @@ class fragment_settings : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+        val view = inflater.inflate(R.layout.fragment_settings, container, false)
+        val botoStats = view.findViewById<android.widget.Button>(R.id.botoStats)
+        botoStats.setOnClickListener {
+            startActivity(android.content.Intent(requireActivity(), StatsActivity::class.java))
+        }
+        return view
     }
 
     companion object {
