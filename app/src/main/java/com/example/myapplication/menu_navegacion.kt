@@ -80,7 +80,7 @@ class menu_navegacion : AppCompatActivity() {
         val elapsedSeconds = (System.currentTimeMillis() - startTimeMillis) / 1000
         val statsManager = StatsManager(this)
         // Coroutine per guardar estadistiques sense bloquejar l'UI
-        androidx.lifecycle.lifecycleScope.launch {
+        lifecycleScope.launch {
             statsManager.addUsageTime(elapsedSeconds)
         }
     }
@@ -88,7 +88,7 @@ class menu_navegacion : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         val statsManager = StatsManager(this)
-        androidx.lifecycle.lifecycleScope.launch {
+        lifecycleScope.launch {
             statsManager.incrementStat(StatsManager.ACTIVITY_CLOSES)
         }
     }
