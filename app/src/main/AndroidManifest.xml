@@ -43,7 +43,7 @@
             android:name=".menu_registrarse"
             android:exported="false" />
         <activity
-            android:name=".StatsActivity"
+            android:name=".stats.StatsActivity"
             android:exported="false" />
     </application>
 

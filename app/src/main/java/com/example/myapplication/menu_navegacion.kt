@@ -77,19 +77,12 @@ class menu_navegacion : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        val elapsedSeconds = (System.currentTimeMillis() - startTimeMillis) / 1000
-        val statsManager = StatsManager(this)
-        // Coroutine per guardar estadistiques sense bloquejar l'UI
-        lifecycleScope.launch {
-            statsManager.addUsageTime(elapsedSeconds)
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        val statsManager = StatsManager(this)
-        lifecycleScope.launch {
-            statsManager.incrementStat(StatsManager.ACTIVITY_CLOSES)
+        val elapsedMinutes = (System.currentTimeMillis() - startTimeMillis) / (1000 * 60)
+        if (elapsedMinutes > 0) {
+            val dataStore = com.example.myapplication.stats.StatsDataStore(this)
+            lifecycleScope.launch {
+                dataStore.addUsageMinutes(elapsedMinutes)
+            }
         }
     }
 }

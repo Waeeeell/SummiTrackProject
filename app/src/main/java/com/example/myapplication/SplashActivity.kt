@@ -16,10 +16,14 @@ class SplashActivity : AppCompatActivity() {
 
         logo.alpha = 0f
 
-        val statsManager = StatsManager(this)
+        val dataStore = com.example.myapplication.stats.StatsDataStore(this)
+        val repository = com.example.myapplication.stats.StatsFirestoreRepository()
         lifecycleScope.launch {
-            statsManager.syncFromFirestore()
-            statsManager.incrementStat(StatsManager.APP_OPENS)
+            val remote = repository.getStats()
+            if (remote != null) {
+                dataStore.overwriteWithFirestore(remote)
+            }
+            dataStore.incrementAppOpens()
         }
 
         logo.animate().setDuration(2000).alpha(1f).withEndAction {

@@ -36,7 +36,7 @@ class fragment_settings : Fragment() {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
         val botoStats = view.findViewById<android.widget.Button>(R.id.botoStats)
         botoStats.setOnClickListener {
-            startActivity(android.content.Intent(requireActivity(), StatsActivity::class.java))
+            startActivity(android.content.Intent(requireActivity(), com.example.myapplication.stats.StatsActivity::class.java))
         }
         return view
     }

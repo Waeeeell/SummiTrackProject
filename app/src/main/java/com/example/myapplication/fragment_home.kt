@@ -84,6 +84,14 @@ class fragment_home : Fragment() {
         viewModel.carregarActivitats()
     }
 
+    override fun onResume() {
+        super.onResume()
+        val dataStore = com.example.myapplication.stats.StatsDataStore(requireContext())
+        androidx.lifecycle.lifecycleScope.launch {
+            dataStore.incrementHomeVisits()
+        }
+    }
+
     private fun observarViewModel() {
         viewModel.activitats.observe(viewLifecycleOwner) { llista ->
             adapter.updateList(llista)

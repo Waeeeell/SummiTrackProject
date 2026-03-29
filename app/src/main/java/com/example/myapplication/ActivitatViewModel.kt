@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class ActivitatViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val statsManager = StatsManager(application)
+    private val dataStore = com.example.myapplication.stats.StatsDataStore(application)
 
     private val _activitats = MutableLiveData<List<Activitat>>()
     val activitats: LiveData<List<Activitat>> = _activitats
@@ -50,7 +50,7 @@ class ActivitatViewModel(application: Application) : AndroidViewModel(applicatio
                 val response = ApiClient.API().createActivitat(activitat)
                 if (response.isSuccessful) {
                     _operacioExitosa.value = true
-                    viewModelScope.launch { statsManager.incrementStat(StatsManager.ITEMS_ADDED) }
+                    viewModelScope.launch { dataStore.incrementAddItemCount() }
                     carregarActivitats()
                 } else {
                     _error.value = "Error al crear: ${response.code()} - ${response.message()}"
@@ -91,7 +91,7 @@ class ActivitatViewModel(application: Application) : AndroidViewModel(applicatio
                 val response = ApiClient.API().deleteActivitat(id)
                 if (response.isSuccessful) {
                     _operacioExitosa.value = true
-                    viewModelScope.launch { statsManager.incrementStat(StatsManager.ITEMS_DELETED) }
+                    viewModelScope.launch { dataStore.incrementDeleteItemCount() }
                     carregarActivitats()
                 } else {
                     _error.value = "Error al eliminar: ${response.code()} - ${response.message()}"
