@@ -39,16 +39,21 @@ class ActivitatAdapter(
         holder.tvDuracio.text = "${item.dias}d ${item.horas}h ${item.minuts}min"
         holder.tvDistancia.text = "${item.distancia} km"
 
-        // Carregar imatge amb Glide
+        // Carregar imatge amb Glide de manera robusta
         if (!item.imatgeUrl.isNullOrEmpty()) {
             Glide.with(holder.itemView.context)
                 .load(item.imatgeUrl)
                 .placeholder(R.drawable.logo_correcte_no_fons)
                 .error(R.drawable.logo_correcte_no_fons)
+                .fallback(R.drawable.logo_correcte_no_fons)
+                .diskCacheStrategy(com.bumptech.glide.load.engine.DiskCacheStrategy.ALL)
+                .transition(com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade(300))
                 .centerCrop()
                 .into(holder.ivImatge)
         } else {
+            Glide.with(holder.itemView.context).clear(holder.ivImatge)
             holder.ivImatge.setImageResource(R.drawable.logo_correcte_no_fons)
+            holder.ivImatge.scaleType = ImageView.ScaleType.CENTER_CROP
         }
 
         // Botó Editar
