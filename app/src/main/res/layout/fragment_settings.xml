@@ -30,11 +30,12 @@
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/switchVoice"
             app:layout_constraintTop_toBottomOf="@id/headerAjustes">
 
             <Button
@@ -59,6 +60,17 @@
                 android:text="@string/english"></Button>
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchVoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Utilitzar Veu"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/toggleGroup"
+            app:layout_constraintBottom_toTopOf="@id/botoStats"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/botoStats"

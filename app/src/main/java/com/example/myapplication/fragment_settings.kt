@@ -35,6 +35,15 @@ class fragment_settings : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
         val botoStats = view.findViewById<android.widget.Button>(R.id.botoStats)
+        val switchVoice = view.findViewById<com.google.android.material.switchmaterial.SwitchMaterial>(R.id.switchVoice)
+        
+        val sharedPreferences = requireActivity().getSharedPreferences("settings", android.content.Context.MODE_PRIVATE)
+        switchVoice.isChecked = sharedPreferences.getBoolean("voice_enabled", false)
+
+        switchVoice.setOnCheckedChangeListener { _, isChecked ->
+            sharedPreferences.edit().putBoolean("voice_enabled", isChecked).apply()
+        }
+
         botoStats.setOnClickListener {
             startActivity(android.content.Intent(requireActivity(), com.example.myapplication.stats.StatsActivity::class.java))
         }
