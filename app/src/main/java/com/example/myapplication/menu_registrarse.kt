@@ -16,39 +16,32 @@ class menu_registrarse : AppCompatActivity() {
     private lateinit var registrate: Button
 
     private lateinit var IntroduceUsuario: EditText
-    private  lateinit var IntroduceContraseña: EditText
+    private lateinit var IntroduceEmail: EditText
 
-    private val viewModel: RegistroViewModel by viewModels() //declaración viewModel importante
+    private val viewModel: RegistroViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_registrarse)
 
-
         initComponent()
         initListeners()
         setupObservers()
-
-
     }
 
-    private fun setupObservers() {            //observadores del viewModel
-        // Escuchamos el error del usuario
+    private fun setupObservers() {
         viewModel.errorUsuario.observe(this) { mensaje ->
             IntroduceUsuario.error = mensaje
         }
 
-        // Escuchamos el error de la contraseña
-        viewModel.errorContraseña.observe(this) { mensaje ->
-            IntroduceContraseña.error = mensaje
+        viewModel.errorEmail.observe(this) { mensaje ->
+            IntroduceEmail.error = mensaje
         }
 
-        // Escuchamos si el registro fue exitoso para cambiar de pantalla
         viewModel.registroExitoso.observe(this) { esValido ->
             if (esValido) {
                 val intent = Intent(this, MainActivity::class.java)
-                // Aquí puedes pasar el nombre si quieres con intent.putExtra
                 startActivity(intent)
             }
         }
@@ -57,22 +50,20 @@ class menu_registrarse : AppCompatActivity() {
     private fun initComponent(){
         volver = findViewById<Button>(R.id.VolverRg)
         registrate = findViewById<Button>(R.id.Adelante)
-        IntroduceContraseña = findViewById<EditText>(R.id.IntroduceContraseña)
+        IntroduceEmail = findViewById<EditText>(R.id.IntroduceContraseña) // Uso el mismo ID por ahora para que no falle el layout
         IntroduceUsuario = findViewById<EditText>(R.id.IntroduceUsuario)
     }
+
     private fun initListeners(){
         volver.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
         registrate.setOnClickListener {
-
             val nombre = IntroduceUsuario.text.toString().trim()
-            val password = IntroduceContraseña.text.toString().trim()
+            val email = IntroduceEmail.text.toString().trim()
 
-            // Le pasamos los datos al ViewModel para que trabaje
-            viewModel.validarRegistro(nombre, password)
-
+            viewModel.validarRegistro(nombre, email)
         }
     }
 }
