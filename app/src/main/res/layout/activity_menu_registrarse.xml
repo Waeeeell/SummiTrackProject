@@ -43,10 +43,20 @@
             </EditText>
 
             <EditText
+                android:id="@+id/IntroduceEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                >
+            </EditText>
+
+            <EditText
                 android:id="@+id/IntroduceContraseña"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
+                android:inputType="textPassword"
                 >
             </EditText>
 

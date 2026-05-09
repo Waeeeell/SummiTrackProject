@@ -17,6 +17,7 @@ class menu_registrarse : AppCompatActivity() {
 
     private lateinit var IntroduceUsuario: EditText
     private lateinit var IntroduceEmail: EditText
+    private lateinit var IntroduceContraseña: EditText
 
     private val viewModel: RegistroViewModel by viewModels()
 
@@ -39,6 +40,10 @@ class menu_registrarse : AppCompatActivity() {
             IntroduceEmail.error = mensaje
         }
 
+        viewModel.errorPassword.observe(this) { mensaje ->
+            IntroduceContraseña.error = mensaje
+        }
+
         viewModel.registroExitoso.observe(this) { esValido ->
             if (esValido) {
                 val intent = Intent(this, MainActivity::class.java)
@@ -50,8 +55,9 @@ class menu_registrarse : AppCompatActivity() {
     private fun initComponent(){
         volver = findViewById<Button>(R.id.VolverRg)
         registrate = findViewById<Button>(R.id.Adelante)
-        IntroduceEmail = findViewById<EditText>(R.id.IntroduceContraseña) // Uso el mismo ID por ahora para que no falle el layout
         IntroduceUsuario = findViewById<EditText>(R.id.IntroduceUsuario)
+        IntroduceEmail = findViewById<EditText>(R.id.IntroduceEmail)
+        IntroduceContraseña = findViewById<EditText>(R.id.IntroduceContraseña)
     }
 
     private fun initListeners(){
@@ -62,8 +68,9 @@ class menu_registrarse : AppCompatActivity() {
         registrate.setOnClickListener {
             val nombre = IntroduceUsuario.text.toString().trim()
             val email = IntroduceEmail.text.toString().trim()
+            val password = IntroduceContraseña.text.toString().trim()
 
-            viewModel.validarRegistro(nombre, email)
+            viewModel.validarRegistro(nombre, email, password)
         }
     }
 }
